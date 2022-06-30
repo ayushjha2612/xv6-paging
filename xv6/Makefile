@@ -184,6 +184,7 @@ UPROGS=\
 	_mydate\
 	_mypgtPrint\
 	_mydemandPage\
+	_myPrioritySched\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)

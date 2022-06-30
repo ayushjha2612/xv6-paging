@@ -111,6 +111,7 @@ found:
   p->context = (struct context*)sp;
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
+  p->priority=DEFAULT_PRIORITY;
 
   return p;
 }
@@ -332,9 +333,21 @@ scheduler(void)
 
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
+
+    int max=-1, process_sched_pid=-1;
+
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->state != RUNNABLE)
-        continue;
+         if(max<p->priority && p->state==RUNNABLE)
+         {
+           max=p->priority;
+           process_sched_pid=p->pid;
+         }
+    }
+
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){     
+      if(p->pid!=process_sched_pid)
+        continue; 
+
 
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it

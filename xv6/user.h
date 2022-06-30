@@ -25,6 +25,8 @@ int sleep(int);
 int uptime(void);
 int mydate(struct rtcdate*);
 int mypgtPrint();
+void setPriority(int);
+int getPriority(void);
 
 // ulib.c
 int stat(const char*, struct stat*);

@@ -140,4 +140,25 @@ sys_mypgtPrint(void)
   }
   return 0;
 }
+int
+sys_setPriority(void)
+{
+  int priority;
+  if(argint(0, &priority) < 0)
+    return -1;
+  if(priority>9 || priority<0)
+  {
+    cprintf("Tried to change incorrect Priority with %d as priority for pid: \n",priority,myproc()->pid);
+    cprintf("Priority Unchanged!\n");
+    return -1;
+  }  
+  myproc()->priority=priority;
+  return 0;
+}
+
+int 
+sys_getPriority()
+{
+  return myproc()->priority;
+}
 

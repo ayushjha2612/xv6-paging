@@ -22,4 +22,7 @@
 #define SYS_close  21
 #define SYS_mydate 22
 #define SYS_mypgtPrint 23
+#define SYS_setPriority 24
+#define SYS_getPriority 25
+
 

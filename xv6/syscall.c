@@ -106,6 +106,8 @@ extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_mydate(void);
 extern int sys_mypgtPrint(void);
+extern int sys_setPriority(void);
+extern int sys_getPriority(void);
 
 
 static int (*syscalls[])(void) = {
@@ -132,6 +134,9 @@ static int (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 [SYS_mydate]  sys_mydate,
 [SYS_mypgtPrint]  sys_mypgtPrint,
+[SYS_setPriority] sys_setPriority,
+[SYS_getPriority] sys_getPriority,
+
 
 };
 
