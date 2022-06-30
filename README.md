@@ -1,3 +1,4 @@
+
 # xv6-paging and other system calls
 
 This project uses xv6 (learning operaying system by MIT) and adds some custom system calls and demand paging.
@@ -40,17 +41,10 @@ make qemu-nox
 ```
 * To test out each feature enter the following commands on the xv6 shell for above features:
 ```  
-mydate  
-```
-```  
+myPrioritySched
+mydate
 mypgtPrint
+mydemandPage
 ```
-```  
-mydemandPage 
-```
-```  
-setPriority 
-```
-
 
 
